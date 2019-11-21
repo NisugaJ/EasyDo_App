@@ -1,6 +1,60 @@
-html,
+@import 'comfortaa.css';
+
+*{
+    /* font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    font-family:  'Comfortaa';
+}
+
+.dark-primary-color {
+    background: #1976D2;
+}
+
+.default-primary-color {
+    background: #2196F3;
+}
+
+.light-primary-color {
+    background: #BBDEFB;
+}
+
+.text-primary-color {
+    color: #FFFFFF;
+}
+
+.accent-color {
+    background: #9E9E9E;
+}
+
+.primary-text-color {
+    color: #212121;
+}
+
+.secondary-text-color {
+    color: #f8f8f8;
+}
+
+.divider-color {
+    border-color: rgb(255, 255, 255);
+}
+
 body {
+    margin: 0;
+    position: relative;
+    min-height: 100vh;
+    /* background-color:#ff6f00; */
+        background: linear-gradient(to right, #874ba3, #8400ff);
+
+}
+
+html,
+body.light-primary-color {
     height: 100%;
+    font-family: 'Comfortaa';
+    /* background-color: #2196F3; */
+}
+
+.navbar-content-margin-fix {
+    margin-top: 55px;
 }
 
 .wrap {
@@ -8,22 +62,38 @@ body {
     height: auto;
     margin: 0 auto -60px;
     padding: 0 0 60px;
+    margin-bottom: 20px;
 }
 
-.wrap > .container {
-    padding: 70px 15px 20px;
+.wrap>.container {
+    padding: 5px;
 }
 
 .footer {
+    position: relative;
     height: 60px;
-    background-color: #f5f5f5;
+    background-color: #212121;
     border-top: 1px solid #ddd;
+    margin-top: 300px;
     padding-top: 20px;
+    color: #999;
 }
 
 .jumbotron {
+    padding: 20px;
     text-align: center;
     background-color: transparent;
+    height: 80vh;
+    position: relative;
+    overflow: visible;
+    align-content: center;
+    margin-bottom: 100px;
+
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 .jumbotron .btn {
@@ -36,8 +106,16 @@ body {
     font-style: italic;
 }
 
+.colored {
+    background: #1976D2;
+    opacity: 0.7;
+}
+
+
 /* add sorting icons to gridview sort links */
-a.asc:after, a.desc:after {
+
+a.asc:after,
+a.desc:after {
     position: relative;
     top: 1px;
     display: inline-block;
@@ -46,14 +124,18 @@ a.asc:after, a.desc:after {
     font-weight: normal;
     line-height: 1;
     padding-left: 5px;
+    background-color: navajowhite;
 }
 
+
 a.asc:after {
-    content: "\e151";
+    content: /*"\e113"*/
+    "\e151";
 }
 
 a.desc:after {
-    content: "\e152";
+    content: /*"\e114"*/
+    "\e152";
 }
 
 .sort-numerical a.asc:after {
@@ -72,13 +154,8 @@ a.desc:after {
     content: "\e156";
 }
 
-.grid-view td {
+.grid-view th {
     white-space: nowrap;
-}
-
-.grid-view .filters input,
-.grid-view .filters select {
-    min-width: 50px;
 }
 
 .hint-block {
@@ -95,26 +172,60 @@ a.desc:after {
     margin: 0 0 15px 0;
 }
 
+
 /* align the logout "link" (button in form) of the navbar */
-.nav li > form > button.logout {
+
+/* .navbar {
+    height: fit-content;
+} */
+
+.nav li>form>button.logout {
     padding: 15px;
     border: none;
 }
 
+.a{
+    color: #FFFFFF;
+}
+
 @media(max-width:767px) {
-    .nav li > form > button.logout {
-        display:block;
+    .nav li>form>button.logout {
+        display: block;
         text-align: left;
         width: 100%;
         padding: 10px 15px;
     }
 }
 
-.nav > li > form > button.logout:focus,
-.nav > li > form > button.logout:hover {
+.nav>li>form>button.logout:focus,
+.nav>li>form>button.logout:hover {
     text-decoration: none;
 }
 
-.nav > li > form > button.logout:focus {
+.nav>li>form>button.logout:focus {
     outline: none;
+}
+
+
+.btn{
+    background: linear-gradient(to right, #ff6600 , #ff7d32);
+    border-color: orange;
+}
+
+.btn:hover{
+    background: linear-gradient(to right, #ff7d32 , #ff6600);
+    border-color: white;
+
+}
+
+::selection {
+    background: #ffe4d2 ; /* WebKit/Blink Browsers */
+  }
+
+.pull-left{
+    margin-left: 200px;
+}
+
+.footer-container{
+    margin-left: 5px;
 }

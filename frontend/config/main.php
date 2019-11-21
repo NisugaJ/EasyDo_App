@@ -24,6 +24,34 @@ return [
             // this is the name of the session cookie used for login on the frontend
             'name' => 'advanced-frontend',
         ],
+
+        //swiftMailer Conf
+        'mailer' => [
+            // 'class' => 'yii\swiftmailer\Mailer',
+            // send all mails to a file by default. You have to set
+            // 'useFileTransport' to false and configure a transport
+            // for the mailer to send real emails.
+            // 'useFileTransport' => false,
+            'class' => 'yii\swiftmailer\Mailer',
+            'useFileTransport' => false,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',  
+                'username' => 'nisujdev@gmail.com',
+                'password' => '',
+                'port' => '465',
+                'encryption' => 'ssl',
+                'streamOptions' => [ 
+                    'ssl' => [ 
+                    'allow_self_signed' => true,
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    ],
+                ]
+            ]
+        ],
+
+
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
