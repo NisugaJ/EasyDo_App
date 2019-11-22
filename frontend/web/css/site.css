@@ -72,11 +72,13 @@ body.light-primary-color {
 .footer {
     position: relative;
     height: 60px;
+    width: 100%;
     background-color: #212121;
-    border-top: 1px solid #ddd;
-    margin-top: 300px;
+    margin-top: 800px;
     padding-top: 20px;
     color: #999;
+    bottom: 0;
+    
 }
 
 .jumbotron {
@@ -229,3 +231,7 @@ a.desc:after {
 .footer-container{
     margin-left: 5px;
 }
+
+table{
+    background-color: #FFFFFF;
+}                                

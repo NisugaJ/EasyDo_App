@@ -10,6 +10,5 @@ $(document).click(function (event) {
     }
     else{
         console.log("calling open");
-
     }
 });

@@ -9,8 +9,11 @@
     use yii\bootstrap4\NavBar;
     use yii\widgets\Breadcrumbs;
     use frontend\assets\AppAsset;
-
+    use yii\helpers\Url;
+    use yii\web\JqueryAsset;
+    
    AppAsset::register($this);
+
    ?>
 
 <?php $this->beginPage() ?>
@@ -23,18 +26,25 @@
       <?php $this->registerCsrfMetaTags() ?>
       <title><?= Html::encode($this->title) ?></title>
       <?php $this->head() ?> 
-    <?php $this->head() ?> 
-      <?php $this->head() ?> 
+    <?php $this->head() ?>
+      <?php $this->head() ?>
+      
+      <!-- Jquery -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <!-- <script src="../web/js_libs/jquery-3.4.1.min.js" ></script> -->
+
       <!-- Load React. -->
       <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
       <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
       <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-      <script src="../web/js_libs/jquery-3.4.1.min.js" ></script>
+
       <script src="../web/js/site.js" ></script>
+
+
    </head>
    <body >
       <?php $this->beginBody() ?>
@@ -96,7 +106,11 @@
             <p class="">&copy; <?= Yii::$app->name." ". date('Y') ?></p>
          </div>
       </footer>
+
       <?php $this->endBody() ?>
+    <!---owl -->
+    <script src="../web/owl/owl.carousel.min.js" crossorigin></script>
+
    </body>
 </html>
 <?php $this->endPage() ?>
