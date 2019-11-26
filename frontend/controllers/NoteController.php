@@ -8,6 +8,7 @@ use app\models\NoteSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\Category;
 
 /**
  * NoteController implements the CRUD actions for Note model.
@@ -40,7 +41,7 @@ class NoteController extends Controller
         }
         $searchModel = new NoteSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -55,8 +56,11 @@ class NoteController extends Controller
      */
     public function actionView($id)
     {
+        $note = $this-> findModel($id);
+        $category = Category::findOne($note->category);
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $note,
+            'categoryName' => $category->categoryName
         ]);
     }
 
@@ -68,13 +72,16 @@ class NoteController extends Controller
     public function actionCreate()
     {
         $model = new Note();
-
+        $model->userId = Yii::$app->user->identity->id;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->noteId]);
         }
 
+        $categories = Category::find()-> all();
+
         return $this->render('create', [
             'model' => $model,
+            'categories' => $categories
         ]);
     }
 
@@ -108,7 +115,6 @@ class NoteController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-
         return $this->redirect(['index']);
     }
 

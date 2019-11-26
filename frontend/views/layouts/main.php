@@ -26,11 +26,11 @@
       <?php $this->registerCsrfMetaTags() ?>
       <title><?= Html::encode($this->title) ?></title>
       <?php $this->head() ?> 
-    <?php $this->head() ?>
       <?php $this->head() ?>
-      
+      <?php $this->head() ?>
+      <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
       <!-- Jquery -->
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
       <!-- <script src="../web/js_libs/jquery-3.4.1.min.js" ></script> -->
 
       <!-- Load React. -->
@@ -38,31 +38,34 @@
       <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
       <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
-
-      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
       <script src="../web/js/site.js" ></script>
-
-
+      <link rel="stylesheet" href="../web/css/site.css" >
    </head>
    <body >
       <?php $this->beginBody() ?>
       <div class="wrap" >
-         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top bottom-shadow">
             <a class="navbar-brand" href="<?= Yii::$app->homeUrl?>"><?=Yii::$app->name; ?></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                <ul class="navbar-nav mr-auto">
-                  <li class="nav-item ">
+                  <li class="nav-item">
                      <a class="nav-link" href="<?= Yii::$app->homeUrl?>">Home <span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
                      <?=Html::a('Notes', ['/note/index'], ['class'=>'nav-link']) ?>
-                  </li>
+                  </li>                  
                   <li class="nav-item">
+                     <?=Html::a('Noteground', ['/note/index'], ['class'=>'nav-link']) ?>
+                  </li>
+                  <li class="nav-item"> 
                      <?=Html::a('Categories', ['/category/index'], ['class'=>'nav-link']) ?>
                   </li>
                   <li class="nav-item">
@@ -88,13 +91,14 @@
                      
                      }else{
                      echo Html::a('Login', ['/site/login'], ['class'=>'btn btn-primary']) ?>
-                  <?php } ?>
+                  <?php } ?> 
                </div>
             </div>
          </nav>
          <div class="navbar-content-margin-fix"></div>
-         <div class="container">
+         <div class="container-fluid" style="width:95%;">
             <?= Breadcrumbs::widget([
+               'class'=>"breadcrumb",
                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                ]) ?>
             <?#= Alert::widget() ?>
@@ -103,7 +107,7 @@
       </div>
       <footer class="footer">
          <div class="footer-container">
-            <p class="">&copy; <?= Yii::$app->name." ". date('Y') ?></p>
+            <p class="">&copy; <?= Yii::$app->name." ".date('Y') ?></p>
          </div>
       </footer>
 

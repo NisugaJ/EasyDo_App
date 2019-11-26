@@ -6,4 +6,5 @@ return [
     'senderName' => 'Support Division',
     'supportEmail' => 'nisujdev@gmail.com',
     'user.passwordResetTokenExpire' => 1800,
+    'bsVersion' => '4.x',
 ];

@@ -1,8 +1,7 @@
 @import 'comfortaa.css';
-
-*{
+* {
     /* font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
-    font-family:  'Comfortaa';
+    font-family: 'Comfortaa';
 }
 
 .dark-primary-color {
@@ -38,12 +37,14 @@
 }
 
 body {
-    margin: 0;
+    zoom: 80%;
+    width: 100%;
+    /* margin: 0;
     position: relative;
     min-height: 100vh;
+    */
     /* background-color:#ff6f00; */
-        background: linear-gradient(to right, #874ba3, #8400ff);
-
+    background: linear-gradient(to right, #874ba3, #8400ff);
 }
 
 html,
@@ -54,27 +55,27 @@ body.light-primary-color {
 }
 
 .navbar-content-margin-fix {
-    margin-top: 55px;
+    margin-top: 80px;
 }
 
 .wrap {
     min-height: 100%;
     height: auto;
-    margin: 0 auto -60px;
-    padding: 0 0 60px;
-    margin-bottom: 20px;
+    margin: 0;
+    padding: 0 0 ;
 }
 
 .wrap>.container {
+    /* padding: 70px 15px 20px;	 */
     padding: 5px;
 }
 
 .footer {
-    position: relative;
+    position: static;
     height: 60px;
     width: 100%;
     background-color: #212121;
-    margin-top: 800px;
+    margin-top: 60vh;
     padding-top: 20px;
     color: #999;
     bottom: 0;
@@ -90,7 +91,6 @@ body.light-primary-color {
     overflow: visible;
     align-content: center;
     margin-bottom: 100px;
-
 }
 
 img {
@@ -128,7 +128,6 @@ a.desc:after {
     padding-left: 5px;
     background-color: navajowhite;
 }
-
 
 a.asc:after {
     content: /*"\e113"*/
@@ -177,6 +176,7 @@ a.desc:after {
 
 /* align the logout "link" (button in form) of the navbar */
 
+
 /* .navbar {
     height: fit-content;
 } */
@@ -186,7 +186,7 @@ a.desc:after {
     border: none;
 }
 
-.a{
+.a {
     color: #FFFFFF;
 }
 
@@ -208,30 +208,45 @@ a.desc:after {
     outline: none;
 }
 
-
-.btn{
-    background: linear-gradient(to right, #ff6600 , #ff7d32);
+.btn {
+    background: linear-gradient(to right, #ff6600, #ff7d32);
     border-color: orange;
 }
 
-.btn:hover{
-    background: linear-gradient(to right, #ff7d32 , #ff6600);
+.btn:hover {
+    background: linear-gradient(to right, #ff7d32, #ff6600);
     border-color: white;
-
 }
 
 ::selection {
-    background: #ffe4d2 ; /* WebKit/Blink Browsers */
-  }
+    background: #ffe4d2;
+    /* WebKit/Blink Browsers */
+}
 
-.pull-left{
+.pull-left {
     margin-left: 200px;
 }
 
-.footer-container{
+.footer-container {
     margin-left: 5px;
 }
 
-table{
+table {
     background-color: #FFFFFF;
-}                                
+    border-radius: 10px;
+}
+
+.bottom-shadow{
+    -webkit-box-shadow: 0 8px 6px -6px rgb(75, 75, 75);
+       -moz-box-shadow: 0 8px 6px -6px rgb(75, 75, 75);
+            box-shadow: 0 8px 6px -6px rgb(75, 75, 75);
+}
+
+.breadcrumb > li{
+    margin-right: 5px;
+}
+
+.normal-form{
+  margin-left: 50px;
+  margin-right: auto;
+}

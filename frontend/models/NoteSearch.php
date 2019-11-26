@@ -5,6 +5,8 @@ namespace app\models;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Note;
+use yii\db\Query;
+use Yii;
 
 /**
  * NoteSearch represents the model behind the search form of `app\models\Note`.
@@ -17,8 +19,8 @@ class NoteSearch extends Note
     public function rules()
     {
         return [
-            [['noteId', 'category'], 'integer'],
-            [['title', 'description', 'addedDateTime', 'reminderDate', 'reminderTime', 'expiryDateTime'], 'safe'],
+            [['noteId'], 'integer'],
+            [['title', 'category','description', 'addedDateTime', 'reminderDate', 'reminderTime', 'expiryDateTime'], 'safe'],
         ];
     }
 
@@ -40,9 +42,9 @@ class NoteSearch extends Note
      */
     public function search($params)
     {
-        $query = Note::find();
-
+        $query = (new Query())-> from('note') ->where(['userId' => Yii::$app->user->identity->id]);
         // add conditions that should always apply here
+        $query->join('INNER JOIN','category c', 'c.categoryId= note.category');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

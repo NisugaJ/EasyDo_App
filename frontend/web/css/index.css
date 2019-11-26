@@ -5,8 +5,8 @@
     display: block;
     /* margin-top: 10px; */
     text-align: center;
-
 }
+
 
 /* .navbar.color {
     background-color: rgb(0, 0, 0);
@@ -21,6 +21,8 @@
     height: 250px;
     width: 250px;
 } */
+
+
 /* 
 .item-carousel>a{
     float: left;
@@ -28,11 +30,14 @@
 
 
 /* ************** */
+
+
 /* .carousel-item {
     border: 1px solid #333;
     height: 250px;
     width: 250px;
   } */
+
 /* 
   .center {
     display: table;
@@ -45,10 +50,9 @@
     vertical-align: middle; 
   }  */
 
-
-  .carousel-item{
+.carousel-item {
     padding-top: auto;
     padding-bottom: 0px;
-    height: 500px;
+    height: 80vh; 
     padding-left: 20vh;
-  }
+}

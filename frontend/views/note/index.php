@@ -1,7 +1,9 @@
+
 <?php
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\NoteSearch */
@@ -18,26 +20,48 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Note', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php #echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <?= GridView::widget([
+    <div style="overflow-x: auto;" >
+    <?=
+        GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+            
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'noteId',
             'title',
             'description:ntext',
-            'category',
+            'categoryName',
             'addedDateTime',
-            //'reminderDate',
-            //'reminderTime',
-            //'expiryDateTime',
+            'reminderDate',
+            'reminderTime',
+            'expiryDateTime',
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-
-
+            [
+                'class'    => 'yii\grid\ActionColumn',
+                'template' => '{view} {update} {delete}',
+                'buttons'  => [
+                    'view'   => function ($url, $model) {
+                        $url = Url::to(['note/view', 'id' => $model['noteId']]);
+                        return Html::a('<span class="fa fa-eye"></span>', $url, ['title' => 'view']);
+                    },
+                    'update' => function ($url, $model) {
+                        $url = Url::to(['note/update', 'id' => $model['noteId']]);
+                        return Html::a('<span class="fas fa-pencil-alt"></span>', $url, ['title' => 'update']);
+                    },
+                    'delete' => function ($url, $model) {
+                        $url = Url::to(['note/delete', 'id' => $model['noteId']]);
+                        return Html::a('<span class="fa fa-trash"></span>', $url, [
+                            'title'        => 'delete',
+                            'data-confirm' => Yii::t('yii', 'Are you sure you want to delete this note ?'),
+                            'data-method'  => 'post',
+                        ]);
+                    },
+            ]       
+        ]
+    ]]); 
+    ?>
+    </div>
 </div>

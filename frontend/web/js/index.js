@@ -1,11 +1,10 @@
 
 
-ReactDOM.render( React.createElement('div',null, 'Hello World'), document.getElementById('react-test') );
+// ReactDOM.render( React.createElement('div',null, 'Hello World'), document.getElementById('react-test') );
 
 $(document).ready(function(){
     $(".your-owl").owlCarousel({
         loop:true,
-        margin:10,
         nav:true,
         responsive:{
             0:{
@@ -20,3 +19,7 @@ $(document).ready(function(){
         }
     });
   });
+
+  $(function() {
+    $('.carousel').carousel();
+ });

@@ -13,10 +13,14 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="note-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= Html::encode($this->title) ?> 
+    <?= Html::label($categoryName ,null, ['class'=> 'badge badge-info', 'style'=> 'font-size:13px;' ] ); ?>
+    </h1>  
 
+    
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->noteId], ['class' => 'btn btn-primary']) ?>
+
         <?= Html::a('Delete', ['delete', 'id' => $model->noteId], [
             'class' => 'btn btn-danger',
             'data' => [
@@ -29,10 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'noteId',
             'title',
             'description:ntext',
-            'category',
             'addedDateTime',
             'reminderDate',
             'reminderTime',
