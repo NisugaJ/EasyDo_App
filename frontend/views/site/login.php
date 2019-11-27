@@ -26,32 +26,39 @@ $this->params['breadcrumbs'][] = $this->title;
     }
 ?>
     <h1 style="text-align:center;margin-top:40px;"><?= Html::encode($this->title) ?></h1>
-    <p>Please fill out the following fields to login:</p>
+    <div class="form-block-main">
 
-    <div class="row">
-        <div class="col-lg-5" id="login-form">
-            <?php $form = ActiveForm::begin([
-                'id' => 'login-form',
-                ]); ?>
+        <div>
+            <div  id="login-form">
+            <p>Please fill out the following fields to login</p>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+                <?php $form = ActiveForm::begin([
+                    'id' => 'form login-form',
+                    'fieldConfig' => [
+                        'template' => "{label}\n<div class=\"col-lg-14\">{input}</div>\n<div class=\"col-lg-5\">{error}</div>",
+                        'labelOptions' => ['class' => 'col-lg-6 control-label'],
+                    ],
 
-                <?= $form->field($model, 'password')->passwordInput() ?>
+                    ]); ?>
 
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
+                    <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
-                <div style="margin:1em 0; font-size:10px;">
-                    If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
-                    <br>
-                    Need new verification email? <?= Html::a('Resend', ['site/resend-verification-email']) ?>
-                </div>
+                    <?= $form->field($model, 'password')->passwordInput() ?>
 
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-lg btn-block', 'name' => 'login-button']) ?>
-                </div>
+                    <?= $form->field($model, 'rememberMe')->checkbox() ?>
 
-            <?php ActiveForm::end(); ?>
+                    <div style="margin:1em 0; font-size:10px;">
+                        If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
+                        <br>
+                        Need new verification email? <?= Html::a('Resend', ['site/resend-verification-email']) ?>
+                    </div>
+
+                    <div class="form-group">
+                        <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-lg btn-block', 'name' => 'login-button']) ?>
+                    </div>
+
+                <?php ActiveForm::end(); ?>
+            </div>
         </div>
     </div>
-  
 </div>

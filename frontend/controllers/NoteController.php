@@ -76,12 +76,9 @@ class NoteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->noteId]);
         }
-
-        $categories = Category::find()-> all();
-
+    
         return $this->render('create', [
             'model' => $model,
-            'categories' => $categories
         ]);
     }
 

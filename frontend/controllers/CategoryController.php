@@ -69,7 +69,7 @@ class CategoryController extends Controller
     public function actionCreate()
     {
         $model = new Category();
-
+        $model->userId = Yii::$app->user->identity->id;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->categoryId]);
         }

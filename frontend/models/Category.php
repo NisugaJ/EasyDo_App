@@ -9,6 +9,7 @@ use Yii;
  *
  * @property int $categoryId
  * @property string $categoryName
+ * @property int $userId
  *
  * @property Note[] $notes
  */
@@ -30,6 +31,8 @@ class Category extends \yii\db\ActiveRecord
         return [
             [['categoryName'], 'required'],
             [['categoryName'], 'string', 'max' => 50],
+            [['userId'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['userId' => 'id']],
+
         ];
     }
 

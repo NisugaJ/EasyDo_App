@@ -50,7 +50,7 @@
       <?php $this->beginBody() ?>
       <div class="wrap" >
          <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top bottom-shadow">
-            <a class="navbar-brand" href="<?= Yii::$app->homeUrl?>"><?=Yii::$app->name; ?></a>
+            <a class="navbar-brand" style="color:#ff6600; font-weight:bold" href="<?= Yii::$app->homeUrl?>"><?=Yii::$app->name; ?></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>

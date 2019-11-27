@@ -52,7 +52,7 @@ $this->title = Yii::$app->name ;
 
       </div>
 
-        <h1 ><b><b>Welcome to <?=Yii::$app->name ?></b></b></h1>
+        <h1 ><b><b>Welcome to <span style="color:#ff6600; font-weight:bold"><?=Yii::$app->name ?></span></b></b></h1>
         <?php
         $button_register =   Html::a(
                         'Get Registered',

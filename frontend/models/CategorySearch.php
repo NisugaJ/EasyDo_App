@@ -5,6 +5,9 @@ namespace app\models;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Category;
+use yii\db\Query;
+use Yii;
+
 
 /**
  * CategorySearch represents the model behind the search form of `app\models\Category`.
@@ -42,7 +45,8 @@ class CategorySearch extends Category
     {
         $query = Category::find();
 
-        // add conditions that should always apply here
+        $query = (new Query())-> from('category') ->where(['userId' => Yii::$app->user->identity->id]);
+        // $query->join('INNER JOIN','category c', 'c.categoryId= note.category');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

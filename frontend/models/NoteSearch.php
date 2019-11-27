@@ -42,7 +42,7 @@ class NoteSearch extends Note
      */
     public function search($params)
     {
-        $query = (new Query())-> from('note') ->where(['userId' => Yii::$app->user->identity->id]);
+        $query = (new Query())-> from('note') ->where(['note.userId' => Yii::$app->user->identity->id]);
         // add conditions that should always apply here
         $query->join('INNER JOIN','category c', 'c.categoryId= note.category');
 

@@ -11,7 +11,6 @@ use Yii;
  * @property string $title
  * @property string $description
  * @property int $category
- * @property string $addedDateTime
  * @property string $reminderDate
  * @property string $reminderTime
  * @property string $expiryDateTime
@@ -36,7 +35,7 @@ class Note extends \yii\db\ActiveRecord
         return [
             [['description'], 'string'],
             [['category'], 'required'],
-            [['addedDateTime', 'reminderDate', 'reminderTime', 'expiryDateTime'], 'safe'],
+            [[ 'reminderDate', 'reminderTime', 'expiryDateTime'], 'safe'],
             [['title'], 'string', 'max' => 75],
             [['category'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category' => 'categoryId']],
             [['userId'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['userId' => 'id']],
@@ -53,7 +52,6 @@ class Note extends \yii\db\ActiveRecord
             'title' => 'Title',
             'description' => 'Description',
             'category' => 'Category',
-            'addedDateTime' => 'Added Date Time',
             'reminderDate' => 'Reminder Date',
             'reminderTime' => 'Reminder Time',
             'expiryDateTime' => 'Expiry Date and Time',
