@@ -3,7 +3,8 @@
    /* @var $content string */
    
     // use app\widgets\Alert;
-    use yii\widgets\Alert;
+   //  use yii\widgets\Alert;
+   //  use Yii;
     use yii\helpers\Html;
     use yii\bootstrap4\Nav;
     use yii\bootstrap4\NavBar;
@@ -11,8 +12,11 @@
     use frontend\assets\AppAsset;
     use yii\helpers\Url;
     use yii\web\JqueryAsset;
-    
-   AppAsset::register($this);
+
+    //Please use this for Alerting in the site
+    use common\widgets\Alert;    
+   
+    AppAsset::register($this);
 
    ?>
 
@@ -43,8 +47,7 @@
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-      <script src="../web/js/site.js" ></script>
-      <link rel="stylesheet" href="../web/css/site.css" >
+
    </head>
    <body >
       <?php $this->beginBody() ?>
@@ -101,7 +104,16 @@
                'class'=>"breadcrumb",
                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                ]) ?>
-            <?#= Alert::widget() ?>
+                <?php
+                  // if( Yii::$app->session->hasFlash('success'))
+                     // echo Html::a(Yii::$app->session->getFlash('success'), ['/site/index'], ['class'=>'btn btn-secondary disabled']);
+                    ?> 
+                    <!-- <a class="nav-link" href="<?#= Yii::$app->homeUrl?>">Home <span class="sr-only">(current)</span></a> -->
+                   <?php  
+                     // echo '<div class="alert alert-success" role="alert">' . Yii::$app->session->getFlash('success') . "</div>\n";
+                        // echo Html::a('asdsdawd', [''], ['class'=>'alert alert-secondary ', 'style'=> 'text-align:centre', 'disabled' => 'disabled']);
+                   Alert::widget()
+                ?>
             <?= $content ?>
          </div>
       </div>
@@ -112,9 +124,6 @@
       </footer>
 
       <?php $this->endBody() ?>
-    <!---owl -->
-    <script src="../web/owl/owl.carousel.min.js" crossorigin></script>
-
    </body>
 </html>
 <?php $this->endPage() ?>

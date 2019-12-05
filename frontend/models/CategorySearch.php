@@ -46,7 +46,7 @@ class CategorySearch extends Category
         $query = Category::find();
 
         $query = (new Query())-> from('category') ->where(['userId' => Yii::$app->user->identity->id]);
-        // $query->join('INNER JOIN','category c', 'c.categoryId= note.category');
+        // $query->join('INNER JOIN','category c', 'c.categoryId= note.categoryId');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

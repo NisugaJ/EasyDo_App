@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="../web/css/index.css">
-<link rel="stylesheet" href="../web/owl/owl.carousel.min.css">
-<link rel="stylesheet" href="../web/owl/owl.theme.default.min.css">
+
 <?php
 
 use yii\helpers\Html;
@@ -9,10 +8,6 @@ use yii\bootstrap4\Button;
 use yii\bootstrap4\Carousel;
 use yii\helpers\Url;
 
-$this->registerJsFile(
-  '@web/js/index.js',
-  ['depends' => [\yii\web\JqueryAsset::className()]]
-);
 /* @var $this yii\web\View */
 
 $this->title = Yii::$app->name ;
@@ -83,5 +78,3 @@ $this->title = Yii::$app->name ;
         ReactDOM.render( React.createElement('div',null, <?php echo json_encode(Yii::$app->name) ?> ), document.getElementById('react-test') );
     </script>
 
-
-    <script src="../web/js/index.js" crossorigin></script>  

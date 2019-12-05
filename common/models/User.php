@@ -10,13 +10,14 @@ use yii\web\IdentityInterface;
 /**
  * User model
  *
- * @property integer $id
+ * @property integer $id 
  * @property string $username
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $verification_token
  * @property string $email
  * @property string $auth_key
+ * @property string $access_token
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at
@@ -27,7 +28,6 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_DELETED = 0;
     const STATUS_INACTIVE = 9;
     const STATUS_ACTIVE = 10;
-
 
     /**
      * {@inheritdoc}
@@ -71,7 +71,8 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
+        // throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
+        return static::findOne(['access_token' => $token, 'status' => SELF::STATUS_ACTIVE ]);
     }
 
     /**
@@ -187,6 +188,14 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
+     * Generates  access_token
+     */
+    public function generateAccessToken()
+    {
+        $this->access_token = Yii::$app->security->generateRandomString();
+    }
+
+    /**
      * Generates new password reset token
      */
     public function generatePasswordResetToken()
@@ -206,4 +215,22 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+
+
+    /**
+     * Retruns all the Notes related to current User
+     * @return \yii\db\ActiveQuery
+     */
+    public function getNotes()
+    {
+        return $this->hasMany(Note::className(), ['userId' => 'id']);
+    }
+
+    /**
+     * 
+     */
+    public function fields(){
+        return ['userId', 'username', 'notes'];
+    }
+
 }

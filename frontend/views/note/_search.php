@@ -21,7 +21,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description') ?>
 
-    <?= $form->field($model, 'category') ?>
+    <?= $form->field($model, 'categoryId') ?>
 
     <?= $form->field($model, 'addedDateTime') ?>
 

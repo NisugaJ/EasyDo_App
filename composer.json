@@ -22,6 +22,7 @@
         "2amigos/yii2-date-time-picker-widget": "~1.0",
         "kartik-v/yii2-widget-datetimepicker": "dev-master",
         "janisto/yii2-timepicker": "*"
+       
 
     },
     "require-dev": {

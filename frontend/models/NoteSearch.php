@@ -20,7 +20,7 @@ class NoteSearch extends Note
     {
         return [
             [['noteId'], 'integer'],
-            [['title', 'category','description', 'addedDateTime', 'reminderDate', 'reminderTime', 'expiryDateTime'], 'safe'],
+            [['title', 'categoryId','description', 'addedDateTime', 'reminderDate', 'reminderTime', 'expiryDateTime'], 'safe'],
         ];
     }
 
@@ -44,7 +44,7 @@ class NoteSearch extends Note
     {
         $query = (new Query())-> from('note') ->where(['note.userId' => Yii::$app->user->identity->id]);
         // add conditions that should always apply here
-        $query->join('INNER JOIN','category c', 'c.categoryId= note.category');
+        $query->join('INNER JOIN','category c', 'c.categoryId= note.categoryId');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -61,7 +61,7 @@ class NoteSearch extends Note
         // grid filtering conditions
         $query->andFilterWhere([
             'noteId' => $this->noteId,
-            'category' => $this->category,
+            'categoryId' => $this->categoryId,
             'addedDateTime' => $this->addedDateTime,
             'reminderDate' => $this->reminderDate,
             'reminderTime' => $this->reminderTime,

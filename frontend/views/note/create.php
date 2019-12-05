@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             
             <?= $form->field($model, 'description')->textarea(['rows' => '6']) ?>
 
-            <?= $form->field($model, 'category')->dropDownList(
+            <?= $form->field($model, 'categoryId')->dropDownList(
                                                 ArrayHelper::map(Category::find()->asArray()->all(), 'categoryId', 'categoryName'),
                                                 ['prompt'=>'Please select a category']    
                             ); ?>

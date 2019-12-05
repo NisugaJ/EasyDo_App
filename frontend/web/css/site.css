@@ -4,34 +4,6 @@
     font-family: 'Comfortaa';
 }
 
-.dark-primary-color {
-    background: #1976D2;
-}
-
-.default-primary-color {
-    background: #2196F3;
-}
-
-.light-primary-color {
-    background: #BBDEFB;
-}
-
-.text-primary-color {
-    color: #FFFFFF;
-}
-
-.accent-color {
-    background: #9E9E9E;
-}
-
-.primary-text-color {
-    color: #212121;
-}
-
-.secondary-text-color {
-    color: #f8f8f8;
-}
-
 .divider-color {
     border-color: rgb(255, 255, 255);
 }
@@ -269,4 +241,10 @@ table {
 
 .navbar-brand{
     color: #ff6600;
+}
+
+
+.alert{
+    padding:5px;
+    border-radius: 3px;
 }

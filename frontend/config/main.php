@@ -15,7 +15,13 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
+            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
+            'cookieValidationKey' => 'rmqRnZFncKKsi26Mzi3ei1ycxYXsZEvt',
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ]
         ],
+        
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
@@ -52,7 +58,6 @@ return [
             ]
         ],
 
-
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -65,14 +70,42 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                
+                //Rule 1
+                /**
+                 * This make the URL more prettier for API.
+                 * For all the api features of Notes    
+                 *  
+                 *  app/notes [GET]               =  app/notes [GET]    
+                 *  app/note/create?id=5 [POST]   =  app/notes/5 [POST]  
+                 *  app/note/update?id=5 [PUT]    =  app/notes/5 [PUT]   
+                 *  app/note/view?id=5 [GET]      =  app/notes/5 [GET]   
+                 *  app/note/delete?id=5 [DELETE] =  app/notes/5 [DELETE]
+                 */
+                [
+                    'class' => 'yii\rest\UrlRule', 'controller' => ['note', 'category'] 
+                ],
+
+                //Rule 2
+                /**
+                 * Easy URL Rule to get notes of a particular category
+                 */
+                [
+                    'pattern' => 'categories/<categoryId:\d+>/notes',
+                    'route' => 'note/index',
+                    // 'defaults' => ['categoryId' => 2],
+                    // 'mode' => \yii\web\UrlRule::PARSING_ONLY
+                ],
+
             ],
         ],
-        */
     ],
     'params' => $params,
+
+    
 ];

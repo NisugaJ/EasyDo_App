@@ -54,4 +54,5 @@ class Category extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Note::className(), ['category' => 'categoryId']);
     }
+
 }

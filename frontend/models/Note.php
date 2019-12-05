@@ -3,14 +3,14 @@
 namespace app\models;
 
 use Yii;
-
+use common\models\User;
 /**
  * This is the model class for table "note".
  *
  * @property int $noteId
  * @property string $title
  * @property string $description
- * @property int $category
+ * @property int $categoryId
  * @property string $reminderDate
  * @property string $reminderTime
  * @property string $expiryDateTime
@@ -34,10 +34,10 @@ class Note extends \yii\db\ActiveRecord
     {
         return [
             [['description'], 'string'],
-            [['category'], 'required'],
+            [['categoryId'], 'required'],
             [[ 'reminderDate', 'reminderTime', 'expiryDateTime'], 'safe'],
             [['title'], 'string', 'max' => 75],
-            [['category'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category' => 'categoryId']],
+            [['categoryId'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['categoryId' => 'categoryId']],
             [['userId'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['userId' => 'id']],
         ];
     }
@@ -51,7 +51,7 @@ class Note extends \yii\db\ActiveRecord
             'noteId' => 'Note ID',
             'title' => 'Title',
             'description' => 'Description',
-            'category' => 'Category',
+            'categoryId' => 'Category',
             'reminderDate' => 'Reminder Date',
             'reminderTime' => 'Reminder Time',
             'expiryDateTime' => 'Expiry Date and Time',
@@ -62,8 +62,10 @@ class Note extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getCategory0()
+    public function getCategory()
     {
-        return $this->hasOne(Category::className(), ['categoryId' => 'category']);
+        return $this->hasOne(Category::className(), ['categoryId' => 'categoryId']);
     }
+
+
 }
