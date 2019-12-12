@@ -6,6 +6,7 @@ use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
+use app\models\Note;
 
 /**
  * User model
@@ -230,7 +231,7 @@ class User extends ActiveRecord implements IdentityInterface
      * 
      */
     public function fields(){
-        return ['userId', 'username', 'notes'];
+        return ['id', 'username', 'access_token'];
     }
 
 }

@@ -167,6 +167,7 @@ use app\models\Category;
 
 use frontend\controllers\MyActiveController;
 use yii\data\ActiveDataProvider;
+use yii\web\ForbiddenHttpException;
 
 
 //Rest API Controller for Notes
@@ -177,7 +178,6 @@ class NoteController extends MyActiveController
 
     public function actions() {
         $actions = parent::actions();
-
         $actions['index']['prepareDataProvider'] = [$this, 'prepareDataProvider']; 
         return $actions;
     }
@@ -190,9 +190,21 @@ class NoteController extends MyActiveController
     }
 
     public function prepareDataProvider(){
-        return new ActiveDataProvider([
-            'query' => $this->modelClass::find()-> andWhere(['categoryId' => \Yii::$app->request->get('categoryId')])
+
+        //GET parameter will be sent as ?userId = userId
+        //This helps to protect userId without exposing the userId to the URL
+        //More securely, UserId can be accessed via \Yii::$app->user->id
+        if( \Yii::$app->request->get('userId') != 'userId')
+            return;
+        $data =  new ActiveDataProvider([
+            'query' => $this->modelClass::find()-> andWhere(['userId' => \Yii::$app->user->id])
         ]);
+        return $data;
     }
 
+    public function checkAccess($action, $model = null, $params = [])
+    {
+        if(in_array($action, ['view','update', 'delete']) && $model->userId !== Yii::$app->user->id  )
+            throw new ForbiddenHttpException("You donot have permission to change this record");
+    }
 }

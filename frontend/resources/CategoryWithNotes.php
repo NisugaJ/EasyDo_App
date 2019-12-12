@@ -11,7 +11,7 @@ use app\models\Note;
 class CategoryWithNotes extends Category {
 
     public function fields(){ 
-        return ['categoryId', 'categoryName'];
+        return ['categoryId', 'categoryName','userId'];
     }
 
     public function extraFields(){

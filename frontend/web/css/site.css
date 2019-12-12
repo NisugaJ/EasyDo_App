@@ -87,7 +87,6 @@ img {
     opacity: 0.7;
 }
 
-
 /* add sorting icons to gridview sort links */
 
 a.asc:after,
@@ -226,7 +225,6 @@ table {
        justify-content: center;
        align-items: center;
        height: max-content;
-
    } 
 } */
 
@@ -248,3 +246,4 @@ table {
     padding:5px;
     border-radius: 3px;
 }
+

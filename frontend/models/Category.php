@@ -3,7 +3,7 @@
 namespace app\models;
 
 use Yii;
-
+use common\models\User;
 /**
  * This is the model class for table "category".
  *
@@ -52,7 +52,6 @@ class Category extends \yii\db\ActiveRecord
      */
     public function getNotes()
     {
-        return $this->hasMany(Note::className(), ['category' => 'categoryId']);
+        return $this->hasMany(Note::className(), ['categoryId' => 'categoryId']);
     }
-
 }

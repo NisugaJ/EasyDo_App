@@ -95,12 +95,12 @@ return [
                 /**
                  * Easy URL Rule to get notes of a particular category
                  */
-                [
-                    'pattern' => 'categories/<categoryId:\d+>/notes',
+                // [
+                    'pattern' => 'notes/<userId:\d+>/notes',
                     'route' => 'note/index',
                     // 'defaults' => ['categoryId' => 2],
                     // 'mode' => \yii\web\UrlRule::PARSING_ONLY
-                ],
+                // ],
 
             ],
         ],

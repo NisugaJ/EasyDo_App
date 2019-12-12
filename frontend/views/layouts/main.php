@@ -1,8 +1,7 @@
 <?php
    /* @var $this \yii\web\View */
    /* @var $content string */
-   
-    // use app\widgets\Alert;
+   // use app\widgets\Alert;
    //  use yii\widgets\Alert;
    //  use Yii;
     use yii\helpers\Html;

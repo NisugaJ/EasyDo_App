@@ -24,9 +24,6 @@ class NoteWithCategory extends Note {
     {
         return $this->hasOne(Category::className(), ['categoryId' => 'categoryId']);
     }
-
-    
-
 }
 
 ?>
