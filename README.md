@@ -1,3 +1,5 @@
+# EasyDo - A Simple to-do management application using React, PHP Yii2 Advanced Project template and MySQL.
+
 <p align="center">
     <a href="https://github.com/yiisoft" target="_blank">
         <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
